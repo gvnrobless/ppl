@@ -1,0 +1,21 @@
+SELECT U.nombre_usuario, U.noNomina_usuario, U.ciudadEstadoNac_usuario, U.fechaNacimiento_usuario, U.sexo_usuario, U.curp_usuario, U.noIMSS_usuario, U.rfc_usuario, U.calle_usuario, U.noExt_usuario, U.noInt_usuario, U.colonia_usuario, U.cp_usuario, U.estado_usuario, U.municipio_usuario, U.telefono_usuario, U.telefono_usuario, U.celular_usuario, U.correoUniva_usuario, U.correoPersonal_usuario, RF.estadoCivil_rf, RF.fechaMatrimonio_rf, RF.nombreConyuge_rf, RF.fechaNacConyuge_rf, RF.nombreMadre_rf, RF.nombrePadre_rf, I.idioma_i, I.hablado_i, I.escrito_i, I.leido_i, H.nombre_hijo, H.fechaNac_hijo, H.gradoEscolar_hijo, FAA.estudio_faa, FAA.escuela_faa, FAA.lunes_faa, FAA.martes_faa, FAA.miercoles_faa, FAA.jueves_faa, FAA.viernes_faa, FAA.sabado_faa, FAA.fechaInicio_faa, FAA.fechaFin_faa, EPPU.empresa_eppu, EPPU.puesto_eppu, EPPU.noAnios_eppu, EPPU.noMeses_eppu, EPPU.nombrePuestoJefe_eppu, EPPU.telefono_eppu, EP.grado_ep, EP.institucion_ep, EP.nombre_ep, EP.periodo_ep, EP.certificado_ep, EP.titulo_ep, EP.cedula_ep, CU.cargo_cu, CU.departamento_cu, CU.anios_cu, CU.meses_cu, CU.nombrePuestoJefe_cu, CU.periodo_cu, CR.nombre_cr, CR.fechaCapacitacion_cr, CR.noHoras_cr, CR.institucion_cr, CR.certificado_cr, CI.nombre_ci, CI.fechaCapacitacion_ci, CI.noHoras_ci, CI.institucion_ci, CI.certificado_ci, AIU.departamento_aiu, AIU.cargo_aiu, AIU.motivo_aiu
+FROM ((((((((((Usuarios AS U
+INNER JOIN Relaciones_familiares AS RF ON U.idUsuario = RF.idUsuario)
+INNER JOIN Idiomas AS I ON U.idUsuario = I.idUsuario)
+INNER JOIN Hijos AS H ON U.idUsuario = H.idUsuario)
+INNER JOIN Formacion_academica_actual AS FAA ON U.idUsuario = FAA.idUsuario)
+INNER JOIN Experiencia_profesional_previa_univa AS EPPU ON U.idUsuario = EPPU.idUsuario)
+INNER JOIN Estudios_prev AS EP ON U.idUsuario = EP.idUsuario)
+INNER JOIN Cargos_univa AS CU ON U.idUsuario = CU.idUsuario)
+INNER JOIN Capacitacion_recibida AS CR ON U.idUsuario = CR.idUsuario)
+INNER JOIN Capacitacion_impartida AS CI ON U.idUsuario = CI.idUsuario)
+INNER JOIN Areas_interes_univa AS AIU ON U.idUsuario = AIU.idUsuario)
+WHERE I.estatus = 1 AND
+H.estatus = 1 AND
+FAA.estatus = 1 AND
+EPPU.estatus = 1 AND
+EP.estatus = 1 AND
+CU.estatus = 1 AND
+CR.estatus = 1 AND
+CI.estatus = 1 AND
+AIU.estatus = 1
