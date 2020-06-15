@@ -1,0 +1,83 @@
+img#logonav {
+    margin: -20px;
+    width: 250px;
+    height: 75px;
+}
+
+p.texto1 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 28px;
+    font-family: 'Roboto Slab', serif;
+    text-align: justify;
+}
+
+p.texto2 {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 28px;
+    font-family: 'Roboto Slab', serif;
+    text-align: justify;
+}
+
+div.caption1 {
+    font-size: 20px;
+    color: blue;
+    font-family: sans-serif;
+}
+
+/*a#hover-menu {
+    color: orange;
+}*/
+
+/* Definimos el color inicial */
+
+/*.cambioColor {
+    color: red;
+}*/
+
+/* Definimos el color al pasar el mouse por encima */
+
+a#cambioColor:hover {
+    color: orange;
+}
+
+#eventos {
+    font-weight: 600;
+    color: blue;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Roboto Slab', sans-serif, monospace;
+    text-align: left;
+}
+
+#fechas {
+    font-weight: 500;
+    color: orange;
+    font-size: 12px;
+    line-height: 16px;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+
+}
+
+#objetivo {
+    font-weight: 600;
+    color: blue;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Roboto Slab', sans-serif, monospace;
+    text-align: left;
+}
+
+#descripcion_objetivo {
+    font-weight: 600;
+    color: orange;
+    font-size: 16px;
+    line-height: 16px;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+
+}
