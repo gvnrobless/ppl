@@ -1,0 +1,947 @@
+{% extends 'layout.twig' %} {% block section1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="row">
+            <div class="col-sm-12" align="center">
+                <div class="divide50"></div>
+                <div class="about-author bordered">
+                    <div class="divide30"></div>
+                    <div class="row">
+                        <div class="col-sm-8" align="right">
+                            <div class="divide40"></div>
+                            <h2>Talento Humano</h2>
+                        </div>
+                        <div class="col-sm-3" align="center">
+                            <img src="{{ '/css/style/images/univaForm.png' | url }}" alt="UNIVA">
+                        </div>
+                    </div>
+
+                    <div class="divide30"></div>
+                    <p style="color: #002857; font-size:50px" align="center">Perfil y Proyección Laboral</p>
+                    <div class="divide30"></div>
+
+                    <!--Note-->
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2" style="background-color: #FFF; border: 3px solid red; text-align: left">
+                        <div class="divide20"></div>    
+                        <h2 style="color: red">Nota:</h2>
+                        <h3>Estimado colaborador, si no ternimas de capturar toda la información que aparece en el formulario, favor de ir al final del mismo y presionar el botón guardar; considera que los campos que estan marcados con el símbolo <strong style="color:red">*</strong> son obligatorios, y si no se captura la información no te permitirá guardarlos. Esto con la finalidad de que cuando ingreses nuevamente, visualices la información capturada.</h3>
+                        </div>
+                    </div>
+
+                    <div class="divide30"></div>
+
+                    <!-- Form -->
+                    <form method="post" action="{{ "admin/form/create" | url }}">
+                        <!-- Información General -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Información General</h3>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="input1">Nombre Completo <strong style="color: red">*</strong></label>
+                                        <input class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" type="text" name="nombre_usuario" id="input1" value="{{ name }}" required>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputNomina">No. Nómina <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="\d*" title="Este campo sólo acepta números" name="noNomina_usuario" id="inputNomina" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="inputCiudadEstadoNacimiento">Ciudad y Estado de Nacimiento <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="ciudadEstadoNac_usuario" id="inputCiudadEstadoNacimiento" required>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputFechaNacimiento">Fecha de Nacimiento <strong style="color: red">*</strong></label>
+                                        <input type="date" class="form-control" name="fechaNacimiento_usuario" id="inputFechaNacimiento" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputSexo">Sexo <strong style="color: red">*</strong></label>
+                                        <select id="inputSexo" name="sexo_usuario" class="form-control" required>
+                                  <option value="Femenino">Femenino</option>
+                                  <option value="Masculino">Masculino</option>
+                              </select>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCurp">CURP <strong style="color: red">*</strong></label>
+                                        <input class="form-control" type="text" pattern=".{18}" title="Este campo debe contener 18 caracteres" name="curp_usuario" maxlength="18" id="inputCurp" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputNoIMSS">No. de IMSS <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern=".{11}" title="Este campo debe contener 11 caracteres" name="noIMSS_usuario" maxlength="11" id="inputNoIMSS" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputRFC">RFC <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" name="rfc_usuario" pattern=".{12, 13}" title="Este campo debe contener máximo 13 caracteres" maxlength="13" id="inputRFC" required>
+                                    </div>
+                                </div>
+
+                                <div class="divide10"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Domicilio</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCalle">Calle <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="calle_usuario" id="inputCalle" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputExterior">No. Exterior <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" name="noExt_usuario" id="inputExterior" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputInterior">No. Interior</label>
+                                        <input type="text" class="form-control" name="noInt_usuario" id="inputInterior">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputColonia">Colonia <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="colonia_usuario" id="inputColonia" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCP">CP <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="\d*" title="Este campo sólo acepta números" name="cp_usuario" maxlength="5" id="inputCP" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputEstado">Estado <strong style="color: red">*</strong></label>
+                                        <select id="inputEstado" name="estado_usuario" class="form-control" required>
+                                    <option value="Aguascalientes">Aguascalientes</option>
+                                    <option value="Baja California">Baja California </option>
+                                    <option value="Baja California Sur">Baja California Sur </option>
+                                    <option value="Campeche">Campeche </option>
+                                    <option value="Chiapas">Chiapas </option>
+                                    <option value="Chihuahua">Chihuahua </option>
+                                    <option value="Coahuila">Coahuila </option>
+                                    <option value="Colima">Colima </option>
+                                    <option value="Distrito Federal">Distrito Federal</option>
+                                    <option value="Durango">Durango </option>
+                                    <option value="Estado de México">Estado de México </option>
+                                    <option value="Guanajuato">Guanajuato </option>
+                                    <option value="Guerrero">Guerrero </option>
+                                    <option value="Hidalgo">Hidalgo </option>
+                                    <option value="Jalisco">Jalisco </option>
+                                    <option value="Michoacán">Michoacán </option>
+                                    <option value="Morelos">Morelos </option>
+                                    <option value="Nayarit">Nayarit </option>
+                                    <option value="Nuevo León">Nuevo León </option>
+                                    <option value="Oaxaca">Oaxaca </option>
+                                    <option value="Puebla">Puebla </option>
+                                    <option value="Querétaro">Querétaro </option>
+                                    <option value="Quintana Roo">Quintana Roo </option>
+                                    <option value="San Luis Potosí">San Luis Potosí </option>
+                                    <option value="Sinaloa">Sinaloa </option>
+                                    <option value="Sonora">Sonora </option>
+                                    <option value="Tabasco">Tabasco </option>
+                                    <option value="Tamaulipas">Tamaulipas </option>
+                                    <option value="Tlaxcala">Tlaxcala </option>
+                                    <option value="Veracruz">Veracruz </option>
+                                    <option value="Yucatán">Yucatán </option>
+                                    <option value="Zacatecas">Zacatecas</option>
+                                </select>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputMunicipio">Municipio <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="municipio_usuario" id="inputMunicipio" required>
+                                    </div>
+                                </div>
+
+                                <div class="divide10"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Datos de Contacto</h3>
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputTelefono">Teléfono</label>
+                                        <input type="text" class="form-control" pattern="\d*" title="Este campo sólo acepta números" maxlength="12" name="telefono_usuario" id="inputTelefono">
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCelular">Celular <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="\d*" title="Este campo sólo acepta números" maxlength="12" name="celular_usuario" id="inputCelular" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCorreoUNIVA">Correo UNIVA <strong style="color: red">*</strong></label>
+                                        <input type="email" class="form-control" name="correoUniva_usuario" id="inputCorreoUNIVA" value="{{ username }}@univa.mx" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputCorreoPersonal">Correo Personal <strong style="color: red">*</strong></label>
+                                        <input type="email" class="form-control" name="correoPersonal_usuario" id="inputCorreoPersonal" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Información General -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Relaciones Familiares -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Relaciones Familiares</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputEstadoCivil">Estado Civil <strong style="color: red">*</strong></label>
+                                        <select id="inputEstadoCivil" name="estadoCivil_rf" class="form-control" required>
+                                      <option value="Soltero">Soltero</option>
+                                      <option value="Casado">Casado</option>
+                                      <option value="Divorciado">Divorciado</option>
+                                      <option value="Viudo">Viudo</option>
+                                      <option value="Concuvinato">Concuvinato</option>
+                                  </select>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputFechaMatrimonio">Fecha de Matrimonio Civil</label>
+                                        <input type="date" class="form-control" name="fechaMatrimonio_rf" id="inputFechaMatrimonio">
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputNombreConyuge">Nombre del Cónyuge</label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="nombreConyuge_rf" id="inputNombreConyuge">
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="inputFechaConyuge">Fecha Nacimiento del Cónyuge</label>
+                                        <input type="date" class="form-control" name="fechaNacConyuge_rf" id="inputFechaConyuge">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputNombreMadre">Nombre de la Madre <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="nombreMadre_rf" id="inputNombreMadre" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputNombrePadre">Nombre del Padre <strong style="color: red">*</strong></label>
+                                        <input type="text" class="form-control" pattern="^\D*$" title="Este campo sólo acepta letras" name="nombrePadre_rf" id="inputNombrePadre" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                      <div class="section-title text-center">
+                                          <h3 style="color: #005cb9">Hijos del Colaborador</h3>
+                                      </div>
+                                        <table class="form group col-md-12">
+                                            <tr>
+                                              <th><strong>Nombre</strong></th>
+                                              <th><strong>Fecha de Nacimiento</strong></th>
+                                              <th><strong>Grado Escolar</strong></th>
+                                            </tr>
+
+                                            {% set a = 1 %} {% for a1 in range(a, 3) %}
+                                            <tr>
+                                                <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="nombre_hijo{{a1}}"></td>
+                                                <td> <input type="date" class="form-control" name="fechaNac_hijo{{a1}}"></td>
+                                                <td>
+                                                    <select name="gradoEscolar_hijo{{a1}}" class="form-control">
+                                                    <option value="Ninguno">Ninguno</option>
+                                                    <option value="Kinder">Kinder</option>
+                                                    <option value="Primaria">Primaria</option>
+                                                    <option value="Secundaria">Secundaria</option>
+                                                    <option value="Preparatoria">Preparatoria</option>
+                                                    <option value="Licenciatura">Licenciatura</option>
+                                                    <option value="Maestría">Maestría</option>
+                                                    <option value="Doctorado">Doctorado</option>
+                                                  </select>
+                                                </td>
+                                            </tr>
+                                            {% set a = a + 1 %} {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más hijos</h4>
+                                        </a>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse1">
+                                                    <table class="form group col-md-12">
+                                                        {% for a1 in range(a, 10) %}
+                                                        <tr>
+                                                            <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="nombre_hijo{{a1}}"></td>
+                                                            <td> <input type="date" class="form-control" name="fechaNac_hijo{{a1}}"></td>
+                                                            <td>
+                                                                <select name="gradoEscolar_hijo{{a1}}" class="form-control">
+                                                              <option value="Ninguno">Ninguno</option>
+                                                              <option value="Kinder">Kinder</option>
+                                                              <option value="Primaria">Primaria</option>
+                                                              <option value="Secundaria">Secundaria</option>
+                                                              <option value="Preparatoria">Preparatoria</option>
+                                                              <option value="Licenciatura">Licenciatura</option>
+                                                              <option value="Maestría">Maestría</option>
+                                                              <option value="Doctorado">Doctorado</option>
+                                                            </select>
+                                                            </td>
+                                                        </tr>
+                                                        {% set a = a + 1 %} {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Relaciones Familiares -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Experiencia Profesional antes de ingresar a UNIVA -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">
+                                        Experiencia Profesional antes de ingresar a UNIVA
+                                    </h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Empresa</strong></th>
+                                            <th><strong>Puesto</strong></th>
+                                            <th><strong>No. Años</strong></th>
+                                            <th><strong>No. Meses</strong></th>
+                                            <th><strong>Nombre y Puesto del Jefe Inmediato</strong></th>
+                                            <th><strong>Teléfono</strong></th>
+                                          </tr>
+                                            {% set b = 1 %} {% for b1 in range(b, 3) %}
+                                            <tr>
+                                                <td> <input type="text" class="form-control" name="empresa_eppu{{b1}}"></td>
+                                                <td> <input type="text" class="form-control" name="puesto_eppu{{b1}}"></td>
+                                                <td> <input type="number" min="0" max="70" value="0" class="form-control" name="noAnios_eppu{{b1}}"></td>
+                                                <td> <input type="number" min="0" max="12" value="0" class="form-control" name="noMeses_eppu{{b1}}"></td>
+                                                <td> <input type="text" class="form-control" name="nombrePuestoJefe_eppu{{b1}}"></td>
+                                                <td> <input type="text" class="form-control" pattern="\d*" title="Este campo sólo acepta números" maxlength="12" name="telefono_eppu{{b1}}"></td>
+                                            </tr>
+                                            {% set b = b + 1 %} {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más experiencia</h4>
+                                        </a>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse2">
+                                                    <table class="form group col-md-12">
+                                                        {% for b1 in range(b, 15) %}
+                                                        <tr>
+                                                            <td> <input type="text" class="form-control" name="empresa_eppu{{b1}}" size="18"></td>
+                                                            <td> <input type="text" class="form-control" name="puesto_eppu{{b1}}" size="18"></td>
+                                                            <td> <input type="number" min="0" max="70" value="0" class="form-control" name="noAnios_eppu{{b1}}"></td>
+                                                            <td> <input type="number" min="0" max="12" value="0" class="form-control" name="noMeses_eppu{{b1}}"></td>
+                                                            <td> <input type="text" class="form-control" name="nombrePuestoJefe_eppu{{b1}}" size="20"></td>
+                                                            <td> <input type="text" class="form-control" pattern="\d*" title="Este campo sólo acepta números" maxlength="12" name="telefono_eppu{{b1}}"></td>
+                                                        </tr>
+                                                        {% set b = b + 1 %} {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Experiencia Profesional antes de ingresar a UNIVA -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Cargos Desempeñados en UNIVA -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Cargos Desempeñados en UNIVA</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Cargo</strong> <strong style="color: red">*</strong></th>
+                                            <th><strong>Área o Departamento</strong> <strong style="color: red">*</strong></th>
+                                            <th><strong>No. Años</strong></th>
+                                            <th><strong>No. Meses</strong></th>
+                                            <th><strong>Nombre y Puesto del Jefe Inmediato</strong></th>
+                                            <th><strong>Período</strong></th>
+                                          </tr>
+                                          <tr>
+                                              <td> <input type="text" class="form-control" name="cargo_cu1" required></td>
+                                              <td> <input type="text" class="form-control" name="departamento_cu1" required></td>
+                                              <td> <input type="number" min="0" max="70" value="0" class="form-control" name="anios_cu1"></td>
+                                              <td> <input type="number" min="0" max="12" value="0" class="form-control" name="meses_cu1"></td>
+                                              <td> <input type="text" class="form-control" name="nombrePuestoJefe_cu1"></td>
+                                              <td> <input type="text" class="form-control" name="periodo_cu1"></td>
+                                          </tr>
+                                            {% set c = 2 %} {% for c1 in range(c, 3) %}
+                                            <tr>
+                                                <td> <input type="text" class="form-control" name="cargo_cu{{c1}}"></td>
+                                                <td> <input type="text" class="form-control" name="departamento_cu{{c1}}"></td>
+                                                <td> <input type="number" min="0" max="70" value="0" class="form-control" name="anios_cu{{c1}}"></td>
+                                                <td> <input type="number" min="0" max="12" value="0" class="form-control" name="meses_cu{{c1}}"></td>
+                                                <td> <input type="text" class="form-control" name="nombrePuestoJefe_cu{{c1}}"></td>
+                                                <td> <input type="text" class="form-control" name="periodo_cu{{c1}}"></td>
+                                            </tr>
+                                            {% set c = c + 1 %} {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más cargos</h4>
+                                        </a>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse3">
+                                                    <table class="form group col-md-12">
+                                                        {% for c1 in range(c, 15) %}
+                                                        <tr>
+                                                            <td> <input type="text" class="form-control" name="cargo_cu{{c1}}"></td>
+                                                            <td> <input type="text" class="form-control" name="departamento_cu{{c1}}"></td>
+                                                            <td> <input type="number" min="0" max="70" value="0" class="form-control" name="anios_cu{{c1}}"></td>
+                                                            <td> <input type="number" min="0" max="12" value="0" class="form-control" name="meses_cu{{c1}}"></td>
+                                                            <td> <input type="text" class="form-control" name="nombrePuestoJefe_cu{{c1}}"></td>
+                                                            <td> <input type="text" class="form-control" name="periodo_cu{{c1}}"></td>
+                                                        </tr>
+                                                        {% set c = c + 1 %} {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cargos Desempeñados en UNIVA -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Áreas Laborales de Interés dentro de la Institución -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Áreas Laborales de Interés dentro de la Institución</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Área o Departamento</strong></th>
+                                            <th><strong>Cargo</strong></th>
+                                            <th><strong>Motivo</strong></th>
+                                          </tr>
+                                            {% set d = 1 %} {% for d1 in range(d, 3) %}
+                                            <tr>
+                                                <td> <input type="text" class="form-control" name="departamento_aiu{{d1}}"></td>
+                                                <td> <input type="text" class="form-control" name="cargo_aiu{{d1}}"></td>
+                                                <td> <input type="text" class="form-control" name="motivo_aiu{{d1}}"></td>
+                                            </tr>
+                                            {% set d = d + 1 %} {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más áreas</h4>
+                                        </a>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse4">
+                                                    <table class="form group col-md-12">
+                                                        {% for d1 in range(d, 5) %}
+                                                        <tr>
+                                                            <td> <input type="text" class="form-control" name="departamento_aiu{{d1}}"></td>
+                                                            <td> <input type="text" class="form-control" name="cargo_aiu{{d1}}"></td>
+                                                            <td> <input type="text" class="form-control" name="motivo_aiu{{d1}}"></td>
+                                                        </tr>
+                                                        {% set d = d + 1 %} {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Áreas Laborales de Interés dentro de la Institución -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Lenguas Extranjeras -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Lenguas Extranjeras</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Idioma</strong></th>
+                                            <th><strong>Hablado (Porcentaje %)</strong></th>
+                                            <th><strong>Escrito (Porcentaje %)</strong></th>
+                                            <th><strong>Leído (Porcentaje %)</strong></th>
+                                          </tr>
+                                            {% set e = 1 %}
+                                            {% for e1 in range(e, 3) %}
+                                              <tr>
+                                                  <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="idioma_i{{e1}}"></td>
+                                                  <td> <input type="number" max="100" min="0" value="0" class="form-control" name="hablado_i{{e1}}"></td>
+                                                  <td> <input type="number" max="100" min="0" value="0" class="form-control" name="escrito_i{{e1}}"></td>
+                                                  <td> <input type="number" max="100" min="0" value="0" class="form-control" name="leido_i{{e1}}"></td>
+                                              </tr>
+                                              {% set e = e + 1 %}
+                                            {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más lenguas</h4>
+                                        </a>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse5">
+                                                    <table class="form group col-md-12">
+                                                        {% for e1 in range(e, 5) %}
+                                                          <tr>
+                                                              <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="idioma_i{{e1}}"></td>
+                                                              <td> <input type="number" max="100" min="0" value="0" class="form-control" name="hablado_i{{e1}}"></td>
+                                                              <td> <input type="number" max="100" min="0" value="0" class="form-control" name="escrito_i{{e1}}"></td>
+                                                              <td> <input type="number" max="100" min="0" value="0" class="form-control" name="leido_i{{e1}}"></td>
+                                                          </tr>
+                                                          {% set e = e + 1 %}
+                                                        {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Lenguas Extranjeras -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Formación Académica -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Estudios Actuales</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEstudiosActualmente">Estudios que cursas actualmente</label>
+                                        <input class="form-control" type="text" name="estudio_faa" id="inputEstudiosActualmente">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEscuela">Escuela</label>
+                                        <input class="form-control" type="text" name="escuela_faa" id="inputEscuela">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="section-title text-center">
+                                        <h4 style="color: #005cb9">Horarios en que asistes a clases</h4>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputLunes">Lunes</label>
+                                        <input class="form-control" type="time" name="horario_faaLunes" id="inputLunes">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputMartes">Martes</label>
+                                        <input class="form-control" type="time" name="horario_faaMartes" id="inputMartes">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputMiercoles">Miércoles</label>
+                                        <input class="form-control" type="time" name="horario_faaMiercoles" id="inputMiercoles">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputJueves">Jueves</label>
+                                        <input class="form-control" type="time" name="horario_faaJueves" id="inputJueves">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputViernes">Viernes</label>
+                                        <input class="form-control" type="time" name="horario_faaViernes" id="inputViernes">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputSabado">Sábado</label>
+                                        <input class="form-control" type="time" name="horario_faaSabado" id="inputSabado">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFechaInicio">Fecha en que inicio sus estudios</label>
+                                        <input class="form-control" type="date" name="fechaInicio_faa" id="inputFechaInicio">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFechaTermino">Fecha problable de término</label>
+                                        <input class="form-control" type="date" name="fechaFin_faa" id="inputFechaTermino">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Formación Académica -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Estudios Anteriores -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Estudios Anteriores</h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Grado Académico</strong><strong style="color: red">*</strong></th>
+                                            <th><strong>Institución</strong> <strong style="color: red">*</strong></th>
+                                            <th><strong>Nombre del grado</strong> <strong style="color: red">*</strong></th>
+                                            <th><strong>Período de estudios</strong> <strong style="color: red">*</strong></th>
+                                            <th><strong>Certificado</strong><strong style="color: red">*</strong></th>
+                                            <th><strong>Título</strong> <strong style="color: red">*</strong></th>
+                                            <th><strong>Cédula</strong> <strong style="color: red">*</strong></th>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <select name="grado_ep1" class="form-control" required>
+                                                    <option value="Preparatoria">Preparatoria</option>
+                                                    <option value="Licenciatura">Licenciatura</option>
+                                                    <option value="Maestría">Maestría</option>
+                                                    <option value="Doctorado">Doctorado</option>
+                                                  </select>
+                                              </td>
+                                              <td> <input type="text" class="form-control" name="institucion_ep1" required></td>
+                                              <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="nombre_ep1" required></td>
+                                              <td> <input type="text" class="form-control" name="periodo_ep1" required></td>
+                                              <td>
+                                                  <select name="certificado_ep1" class="form-control" required>
+                                                    <option value="Sí">Sí</option>
+                                                    <option value="No">No</option>
+                                                  </select>
+                                              </td>
+                                              <td>
+                                                  <select name="titulo_ep1" class="form-control" required>
+                                                    <option value="Sí">Sí</option>
+                                                    <option value="No">No</option>
+                                                    <option value="En trámite">En trámite</option>
+                                                  </select>
+                                              </td>
+                                              <td>
+                                                  <select name="cedula_ep1" class="form-control" required>
+                                                    <option value="Sí">Sí</option>
+                                                    <option value="No">No</option>
+                                                    <option value="En trámite">En trámite</option>
+                                                  </select>
+                                              </td>
+                                          </tr>
+                                          {% set f = 2 %}
+                                          {% for f1 in range(f, 3) %}
+                                            <tr>
+                                                <td>
+                                                    <select name="grado_ep{{f1}}" class="form-control">
+                                                    <option value="Preparatoria">Preparatoria</option>
+                                                    <option value="Licenciatura">Licenciatura</option>
+                                                    <option value="Maestría">Maestría</option>
+                                                    <option value="Doctorado">Doctorado</option>
+                                                  </select>
+                                                </td>
+                                                <td> <input type="text" class="form-control" name="institucion_ep{{f1}}"></td>
+                                                <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="nombre_ep{{f1}}"></td>
+                                                <td> <input type="text" class="form-control" name="periodo_ep{{f1}}"></td>
+                                                <td>
+                                                    <select name="certificado_ep{{f1}}" class="form-control">
+                                                      <option value="Sí">Sí</option>
+                                                      <option value="No">No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="titulo_ep{{f1}}" class="form-control">
+                                                      <option value="Sí">Sí</option>
+                                                      <option value="No">No</option>
+                                                      <option value="En trámite">En trámite</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="cedula_ep{{f1}}" class="form-control">
+                                                      <option value="Sí">Sí</option>
+                                                      <option value="No">No</option>
+                                                      <option value="En trámite">En trámite</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            {% set f = f + 1 %}
+                                          {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más estudios</h4>
+                                        </a>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse6">
+                                                    <table class="form group col-md-12">
+                                                        {% for f1 in range(f, 7) %}
+                                                          <tr>
+                                                              <td>
+                                                                  <select name="grado_ep{{f1}}" class="form-control">
+                                                                  <option value="Preparatoria">Preparatoria</option>
+                                                                  <option value="Licenciatura">Licenciatura</option>
+                                                                  <option value="Maestría">Maestría</option>
+                                                                  <option value="Doctorado">Doctorado</option>
+                                                                </select>
+                                                              </td>
+                                                              <td> <input type="text" class="form-control" name="institucion_ep{{f1}}"></td>
+                                                              <td> <input type="text" pattern="^\D*$" title="Este campo sólo acepta letras" class="form-control" name="nombre_ep{{f1}}"></td>
+                                                              <td> <input type="text" class="form-control" name="periodo_ep{{f1}}"></td>
+                                                              <td>
+                                                                  <select name="certificado_ep{{f1}}" class="form-control">
+                                                                    <option value="Sí">Sí</option>
+                                                                    <option value="No">No</option>
+                                                                  </select>
+                                                              </td>
+                                                              <td>
+                                                                  <select name="titulo_ep{{f1}}" class="form-control">
+                                                                    <option value="Sí">Sí</option>
+                                                                    <option value="No">No</option>
+                                                                    <option value="En trámite">En trámite</option>
+                                                                  </select>
+                                                              </td>
+                                                              <td>
+                                                                  <select name="cedula_ep{{f1}}" class="form-control">
+                                                                    <option value="Sí">Sí</option>
+                                                                    <option value="No">No</option>
+                                                                    <option value="En trámite">En trámite</option>
+                                                                  </select>
+                                                              </td>
+                                                          </tr>
+                                                          {% set f = f + 1 %}
+                                                        {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Estudios Anteriores -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Eventos de capacitación recibidos (Internos y Externos) -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Eventos de capacitación recibidos (Internos y Externos)<br>
+                                      <strong style="color: red">(Últimos 3 años)</strong></h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Nombre del Evento</strong></th>
+                                            <th><strong>Fecha</strong></th>
+                                            <th><strong>No. Horas</strong></th>
+                                            <th><strong>Institución</strong></th>
+                                            <th><strong>Constancia</strong></th>
+                                          </tr>
+                                          {% set g = 1 %}
+                                          {% for g1 in range(g, 3) %}
+                                            <tr>
+                                                <td> <input type="text" class="form-control" name="nombre_cr{{g1}}"></td>
+                                                <td> <input type="date" class="form-control" name="fechaCapacitacion_cr{{g1}}"></td>
+                                                <td> <input type="number" max="1000" min="0" value="0" class="form-control" name="noHoras_cr{{g1}}"></td>
+                                                <td> <input type="text" class="form-control" name="institucion_cr{{g1}}"></td>
+                                                <td>
+                                                    <select name="certificado_cr{{g1}}" class="form-control">
+                                                      <option value="Sí">Sí</option>
+                                                      <option value="No">No</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            {% set g = g + 1 %}
+                                          {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más eventos</h4>
+                                        </a>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse7">
+                                                    <table class="form group col-md-12">
+                                                        {% for g1 in range(g, 15) %}
+                                                          <tr>
+                                                              <td> <input type="text" class="form-control" name="nombre_cr{{g1}}"></td>
+                                                              <td> <input type="date" class="form-control" name="fechaCapacitacion_cr{{g1}}"></td>
+                                                              <td> <input type="number" max="1000" min="0" value="0" class="form-control" name="noHoras_cr{{g1}}"></td>
+                                                              <td> <input type="text" class="form-control" name="institucion_cr{{g1}}"></td>
+                                                              <td>
+                                                                  <select name="certificado_cr{{g1}}" class="form-control">
+                                                                    <option value="Sí">Sí</option>
+                                                                    <option value="No">No</option>
+                                                                  </select>
+                                                              </td>
+                                                          </tr>
+                                                          {% set g = g + 1 %}
+                                                        {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Eventos de capacitación recibidos (Internos y Externos) -->
+
+                        <div class="divide30"></div>
+
+                        <!-- Eventos de capacitación impartidos (Internos y Externos) -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Eventos de capacitación impartidos (Internos y Externos)<br>
+                                      <strong style="color: red">(Últimos 3 años)</strong>
+                                    </h3>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <table class="form group col-md-12">
+                                          <tr>
+                                            <th><strong>Nombre del Evento</strong></th>
+                                            <th><strong>Fecha</strong></th>
+                                            <th><strong>No. Horas</strong></th>
+                                            <th><strong>Institución</strong></th>
+                                            <th><strong>Constancia</strong></th>
+                                          </tr>
+                                          {% set h = 1 %}
+                                          {% for h1 in range(h, 3) %}
+                                            <tr>
+                                                <td> <input type="text" class="form-control" name="nombre_ci{{h1}}"></td>
+                                                <td> <input type="date" class="form-control" name="fechaCapacitacion_ci{{h1}}"></td>
+                                                <td> <input type="number" max="1000" min="0" value="0" class="form-control" name="noHoras_ci{{h1}}"></td>
+                                                <td> <input type="text" class="form-control" name="institucion_ci{{h1}}"></td>
+                                                <td>
+                                                    <select name="certificado_ci{{h1}}" class="form-control">
+                                                      <option value="Sí">Sí</option>
+                                                      <option value="No">No</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            {% set h = h + 1 %}
+                                          {% endfor %}
+                                        </table>
+
+                                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                            <h4 align="left" style="color: #f18903">+ Añadir más eventos</h4>
+                                        </a>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="collapse" id="collapse8">
+                                                    <table class="form group col-md-12">
+                                                        {% for h1 in range(h, 15) %}
+                                                          <tr>
+                                                              <td> <input type="text" class="form-control" name="nombre_ci{{h1}}"></td>
+                                                              <td> <input type="date" class="form-control" name="fechaCapacitacion_ci{{h1}}"></td>
+                                                              <td> <input type="number" max="1000" min="0" value="0" class="form-control" name="noHoras_ci{{h1}}"></td>
+                                                              <td> <input type="text" class="form-control" name="institucion_ci{{h1}}"></td>
+                                                              <td>
+                                                                  <select name="certificado_ci{{h1}}" class="form-control">
+                                                                    <option value="Sí">Sí</option>
+                                                                    <option value="No">No</option>
+                                                                  </select>
+                                                              </td>
+                                                          </tr>
+                                                          {% set h = h + 1 %}
+                                                        {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Eventos de capacitación impartidos (Internos y Externos) -->
+                        <hr>
+                        <h1>Después de <strong style="color:red">dar click</strong> en el <strong style="color:red">botón guardar</strong>, a continuación te permitirá subir los documentos.</h1>
+                        <div class="row">
+                            <div class=" col-sm-2 col-sm-offset-5">
+                                <div class="divide15"></div>
+                                <input class="btn" style="background-color: #002857" type="submit" value="Guardar">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="divide30"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

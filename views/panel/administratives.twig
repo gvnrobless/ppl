@@ -1,0 +1,35 @@
+{% extends 'layoutPanel.twig' %}
+{% block section1 %}
+<div class="divide10"></div>
+<div class="section-title text-left">
+    <h3 style="color: #002857">Administrativos UNIVA</h3>
+</div>
+          <div class="col-sm-12">
+            <div class="about-author bordered" style="color: #000000">
+                <div class="text-center">
+                    <table class="table">
+                        <tr>
+                            <th>No. Nómina</th>
+                            <th>Nombre</th>
+                            <th>Correo UNIVA</th>
+                            <th>Documentos</th>
+                        </tr>
+                        {% for u in users %}
+                        <tr>
+                            <td>{{u.noNomina_usuario}}</td>
+                            <td>{{u.nombre_usuario}}</td>
+                            <td>{{u.correoUniva_usuario}}</td>
+                            <td> <a href="{{ "panel/admin/view/" | url }}{{u.correoUniva_usuario}}" target="_blank">Ver Documentos</a> </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <div class="divide80"></div>
+                    <div class="divide80"></div>
+                    <div class="divide80"></div>
+                    <div class="divide80"></div>
+                    <div class="divide80"></div>
+                    <div class="divide80"></div>
+                </div>
+            </div>
+          </div>
+{% endblock %}

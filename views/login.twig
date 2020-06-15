@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="{{ "/css/style/images/favicon.png" | url }}">
+    <title>UNIVA | Proyecto Perfil Laboral</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url("{{ "/css/style/images/login.jpg" | url }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        @import "bourbon";
+        .wrapper {
+            margin-top: 75px;
+            margin-bottom: 80px;
+        }
+
+        .form-signin {
+            max-width: 500px;
+            padding: 15px 35px 45px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            .form-signin-heading,
+            .checkbox {
+                margin-bottom: 30px;
+            }
+            .checkbox {
+                font-weight: normal;
+            }
+            .form-control {
+                position: relative;
+                font-size: 16px;
+                height: auto;
+                padding: 10px;
+                @include box-sizing(border-box);
+                &:focus {
+                    z-index: 2;
+                }
+            }
+            input[type="text"] {
+                margin-bottom: -1px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            input[type="password"] {
+                margin-bottom: 20px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form class="form-signin" method="post">
+            <h1 class="form-signin-heading" style="text-align:center">Iniciar sesión</h1>
+
+            <br>
+                <center>
+                    <h4 style="color: red">No utilizar los siguientes navegadores:</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img class="responsive-img" width="70" src="{{ "/css/style/images/edge.png" | url }}">
+                            <br>
+                            <h4>Edge</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <img class="responsive-img" width="70" src="{{ "/css/style/images/explorer.png" | url }}">
+                            <h4>Internet Explorer</h4>
+                        </div>
+                    </div>
+                </center>
+                {% if errors %}
+                  {% include('partials/errors.twig') %}
+                {% endif %}
+
+                <br>
+
+            <input type="text" class="form-control" name="usuario" pattern="^\D*$" title="Este campo sólo acepta letras" placeholder="Usuario UNIVA (Omitir @univa.mx)" required="" autofocus="" />
+            <br>
+            <input type="password" class="form-control" name="contrasenia" placeholder="Contraseña correo UNIVA" required="" />
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar</button>
+            <a href="#" data-toggle="modal" data-target="#exampleModal">¿Problemas para iniciar sesión?</a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Asistencia para ingresar al portal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Si tienes problemas para ingresar al portal, favor de dirigirse al departamento de Talento Humano del plantel correspondiente.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+{% extends 'layout.twig' %} {% block section1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="row">
+            <div class="col-sm-12" align="center">
+                <div class="divide50"></div>
+                <div class="about-author bordered">
+                    <div class="divide30"></div>
+                    <div class="row">
+                        <div class="col-sm-8" align="right">
+                            <div class="divide40"></div>
+                            <h2>Talento Humano</h2>
+                        </div>
+                        <div class="col-sm-3" align="center">
+                            <img src="{{ '/css/style/images/univaForm.png' | url }}" alt="UNIVA">
+                        </div>
+                    </div>
+
+                    <div class="divide30"></div>
+                    <h1 style="color: #002857" align="center">Perfil y Proyección Laboral 2018</h1>
+
+                    <!-- Form -->
+                    <form method="post" enctype="multipart/form-data" action="{{ "admin/form/documents" | url }}">
+                        <!-- Upload Files Start -->
+                        <div class="row">
+                            <div class=" col-sm-10 col-sm-offset-1" style="background-color: #F5F5F5">
+                                <div class="divide30"></div>
+                                <div class="section-title text-center">
+                                    <h3 style="color: #005cb9">Subir Archivos</h3>
+                                    <br>
+                                    <br>
+                                    <br>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3" style="text-align: left">
+                                    <h4 style="color: #005cb9">Acta de Nacimiento <strong style="color: red">*</strong></h4>
+                                    {% set actaNacimiento = ['actaNacimiento_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                    {% for f in up %}
+                                    {% if f.archivo == actaNacimiento %}
+                                        <h5>Archivo Actual:</h5>
+                                        {% set link = ['uploads', f.archivo] | join('/') %}
+                                        <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                        <label for="actualizar1">Actualizar</label>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" type="file" id="actualizar1" name="actaNacimiento" accept="application/pdf">
+                                  </div>
+
+                                  <div class="form-group col-md-3" style="text-align: left">
+                                    <h4 style="color: #005cb9">INE / IFE <strong style="color: red">*</strong></h4>
+                                    {% set ine = ['ine_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                    {% for f in up %}
+                                    {% if f.archivo == ine %}
+                                      <h5>Archivo Actual:</h5>
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                      <label for="actualizar2">Actualizar</label>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" type="file" id="actualizar2" name="ine" accept="application/pdf">
+                                  </div>
+
+                                    <div class="form-group col-md-3" style="text-align: left">
+                                      <h4 style="color: #005cb9">Comprobante Domicilio <strong style="color: red">*</strong></h4>
+                                      {% set comprobante = ['comprobante_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                      {% for f in up %}
+                                      {% if f.archivo == comprobante %}
+                                        <h5>Archivo Actual:</h5>
+                                        {% set link = ['uploads', f.archivo] | join('/') %}
+                                        <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                        <label for="actualizar3">Actualizar</label>
+                                      {% endif %}
+                                      {% endfor %}
+                                      <input style="color: black" type="file" id="actualizar3" name="comprobante" accept="application/pdf">
+                                    </div>
+
+                                    <div class="form-group col-md-3" style="text-align: left">
+                                      <h4 style="color: #005cb9">RFC <strong style="color: red">*</strong></h4>
+                                      {% set rfc = ['rfc_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                      {% for f in up %}
+                                      {% if f.archivo == rfc %}
+                                        <h5>Archivo Actual:</h5>
+                                        {% set link = ['uploads', f.archivo] | join('/') %}
+                                        <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                        <label for="actualizar4">Actualizar</label>
+                                      {% endif %}
+                                      {% endfor %}
+                                      <input style="color: black" id="actualizar4" type="file" name="rfc" accept="application/pdf">
+                                    </div>
+                                </div>
+
+                                <div class="divide70"></div>
+                                <div class="divide70"></div>
+                                <div class="divide70"></div>
+
+                                <div class="form-row">
+
+                                  <div class="form-group col-md-3" style="text-align: left">
+                                    <h4 style="color: #005cb9">IMSS <strong style="color: red">*</strong></h4>
+                                    {% set imss = ['imss_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                    {% for f in up %}
+                                    {% if f.archivo == imss %}
+                                      <h5>Archivo Actual:</h5>
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                      <label for="actualizar5">Actualizar</label>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" id="actualizar5" type="file" name="imss" accept="application/pdf">
+                                  </div>
+
+                                  <div class="form-group col-md-3" style="text-align: left">
+                                    <h4 style="color: #005cb9">CURP <strong style="color: red">*</strong></h4>
+                                    {% set curp = ['curp_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                    {% for f in up %}
+                                    {% if f.archivo == curp %}
+                                      <h5>Archivo Actual:</h5>
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                      <label for="actualizar6">Actualizar</label>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" id="actualizar6" type="file" name="curp" accept="application/pdf">
+                                  </div>
+
+                                  <div class="form-group col-md-3" style="text-align: left">
+                                    <h4 style="color: #005cb9">Acta de Matrimonio</h4>
+                                    {% set actaMatrimonio = ['actaMatrimonio_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                    {% for f in up %}
+                                    {% if f.archivo == actaMatrimonio %}
+                                      <h5>Archivo Actual:</h5>
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                      <label for="actualizar7">Actualizar</label>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" id="actualizar7" type="file" name="actaMatrimonio" accept="application/pdf">
+                                  </div>
+
+                                  <div class="form-group col-md-3" style="text-align: left">
+                                    <h4 style="color: #005cb9">Actas de Nacimiento Hijos</h4><strong style="color: black">(Adjuntar en un solo archivo)</strong>
+                                    {% set actaHijos = ['actaHijos_', user.noNomina_usuario, '.pdf'] | join('') %}
+                                    {% for f in up %}
+                                    {% if f.archivo == actaHijos %}
+                                      <h5>Archivo Actual:</h5>
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                      <label for="actualizar8">Actualizar</label>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" id="actualizar8" type="file" name="actaHijos" accept="application/pdf">
+                                  </div>
+
+                                </div>
+
+                                <div class="divide70"></div>
+                                <div class="divide70"></div>
+                                <div class="divide50"></div>
+
+                                <div class="row">
+                                      <div class="col-sm-10 col-sm-offset-1" style="border: 2px solid red;">
+                                        <div class="divide10"></div>
+                                          <h4 style="color: red" align="left">Nota* <strong style="color: black">(Títulos y Cédulas)</strong></h4>
+                                          <ul align="left">
+                                            <li><h4>Nombrar los archivos con un texto descriptivo y al <strong style="color:red">final poner tu número de nómina</strong>.</h4></li>
+                                            <h4 style="color: red">Nombre del Archivo_NoNómina.pdf</h4>
+                                            <h4 style="color: blue"><strong style="color: black">Ejemplo:</strong> Título licenciatura_3333.pdf</h4>
+                                            <h4 style="color: blue"><strong style="color: black">Ejemplo:</strong> Cédula Profesional_3333.pdf</h4>
+                                            <h4 style="color: blue"><strong style="color: black">Ejemplo:</strong> Título Maestría_3333.pdf</h4>
+                                            <li><h4>Los nombres de los archivos deben ser diferentes.</h4></li>
+                                            <li><h4>Si el sistema detecta archivos con el mismo nombre, sólo se guardará el primer archivo.</h4></li>
+                                            <li><h4>Para <strong style="color: red">actualizar</strong> un archivo debe ser guardado con el mismo nombre que esta registrado en el sistema.</h4></li>
+                                          </ul>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="divide30"></div>
+
+                                <div class="form-row">
+
+                                  <div class="form-group col-md-6" style="text-align: left">
+                                    <h4 style="color: #005cb9">Títulos</h4><strong style="color: black">(7 archivos máximo)</strong>
+                                    {% for f in up %}
+                                    {% if f.tipo == 9 %}
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" id="actualizar9" type="file" name="titulos[]" multiple accept="application/pdf">
+                                  </div>
+
+                                  <div class="form-group col-md-6" style="text-align: left">
+                                    <h4 style="color: #005cb9">Cédulas</h4><strong style="color: black">(7 archivos máximo)</strong>
+                                    {% for f in up %}
+                                    {% if f.tipo == 10 %}
+                                      {% set link = ['uploads', f.archivo] | join('/') %}
+                                      <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <input style="color: black" id="actualizar10" type="file" name="cedulas[]" multiple accept="application/pdf">
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upload Files End -->
+                        <div class="divide30"></div>
+                        <div class="row">
+                            <div class=" col-sm-2 col-sm-offset-5">
+                                <input class="btn" style="background-color: #002857" type="submit" value="Finalizar">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="divide30"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layout.twig' %}
+{% block section1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="row">
+            <div class="col-sm-9" align="center">
+                <div class="divide50"></div>
+                <div class="about-author bordered">
+                    <div class="divide30"></div>
+                    <img src="{{ "css/style/images/success.png" | url }}" height="150">
+                    <div class="divide30"></div>
+                    <h1 style="color: #002857" align="center">¡ La información se ha guardado <br> de manera exitosa !</h1>
+                    <br>
+                    <h2>Gracias por el tiempo invertido en este formulario. <br> </h2>
+                    <div class="divide30"></div>
+                    <input type="hidden" id="url" value="{{ "admin/profile " | url}}">
+                    <div class="col-sm-6" align="justify">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3" align="center">
+            <div class="divide10"></div>
+            <img src="{{ "css/style/images/up.png" | url }}" height="150" class="img-responsive" width="50">
+                <div class="about-author bordered" style="border: 5px solid red">
+                    <div>
+                        <h1>Sube o actualiza tus documentos aquí.</h1>
+                    </div>
+                    <input type="hidden" id="url" value="{{ "admin/profile " | url}}">
+                    <div class="col-sm-6" align="justify">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

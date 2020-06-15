@@ -1,0 +1,32 @@
+{% extends 'layoutPanel.twig' %}
+{% block section1 %}
+    <div class="divide10"></div>
+    <div class="section-title text-left">
+        <h3 style="color: #002857">Reportes</h3>
+    </div>
+
+    <div class="row">
+      <div class="section-title text-center">
+          <h3 style="color: #002857">Reportes del sistemas</h3>
+      </div>
+
+      <div class="divide60"></div>
+      <div class="divide60"></div>
+
+      <img src="{{ '/css/style/images/reports.png' | url }}" alt="">
+
+      <div class="divide50"></div>
+      <div class="divide50"></div>
+
+      <form method="post">
+        <div class="row">
+            <div class=" col-sm-2 col-sm-offset-5">
+                <input class="btn" style="background-color: #002857" type="submit" value="Generar Reporte">
+            </div>
+        </div>
+      </form>
+      <div class="divide50"></div>
+      <div class="divide50"></div>
+      <div class="divide30"></div>
+    </div>
+{% endblock %}

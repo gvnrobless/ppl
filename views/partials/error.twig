@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+{% block section1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="row">
+            <div class="col-sm-12" align="center">
+                <div class="divide50"></div>
+                <div class="about-author bordered">
+                    <div class="divide30"></div>
+                    <img src="{{ "css/style/images/error.png" | url }}" height="150">
+                    <div class="divide30"></div>
+                    <h1 style="color: #002857" align="center">Hubo un error al momento de cargar los siguiente(s) archivo(s): </h1>
+                    <div class="divide10"></div>
+                    <h3 style="color: #002857" align="justify">Corroborar que los archivos señalados sean formato <strong style="color: red">.pdf</strong></h3>
+                    <h3 style="color: #002857" align="justify">Corroborar que los archivos señalados no superen el siguiente tamaño: <strong style="color: red">900kb</strong></h3>
+                    <div class="divide10"></div>
+                    <input type="hidden" id="url" value="{{ "admin/profile " | url}}">
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for  messages in error %}
+                              <li style="text-align: left">{{messages}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends 'layout.twig' %}
+{% block section1 %}
+  <div class="light-wrapper">
+      <div class="container inner">
+          <div class="row">
+              <!-- Form -->
+              <div class="col-sm-12" align="center">
+                  <div class="divide30"></div>
+                  <div class="section-title text-center">
+                      <h3 style="color: #005cb9">Documentos Guardados</h3>
+                  </div>
+                    <table class="table bordered">
+                    <tr>
+                      <th>Acta de Nacimiento</th>
+                      <th>INE/IFE</th>
+                      <th>Comprobante</th>
+                      <th>RFC</th>
+                      <th>IMSS</th>
+                      <th>CURP</th>
+                      <th>Matrimonio</th>
+                      <th>Acta Hijos</th>
+                      <th>Títulos</th>
+                      <th>Cédulas</th>
+                    </tr>
+                    <tr style="text-align: center">
+
+                      <td>
+                        {% set acta = ['actaNacimiento_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == acta %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set ine = ['ine_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == ine %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set comprobante = ['comprobante_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == comprobante %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set rfc = ['rfc_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == rfc %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set imss = ['imss_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == imss %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set curp = ['curp_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == curp %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set matrimonio = ['actaMatrimonio_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == matrimonio %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        {% set hijos = ['actaHijos_', user.noNomina_usuario, '.pdf'] | join('') %}
+                        {% for f in up %}
+                        {% if f.archivo == hijos %}
+                          {% set link = ['uploads', f.archivo] | join('/') %}
+                          <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                        {% endif %}
+                        {% endfor %}
+                      </td>
+
+                      <td>
+                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                          <h5 align="center" style="color: blue">Visualizar</h5>
+                        </a>
+                        <div class="collapse" id="collapse1">
+                          {% for f in up %}
+                          {% if f.tipo == 9 %}
+                            {% set link = ['uploads', f.archivo] | join('/') %}
+                            <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                          {% endif %}
+                          {% endfor %}
+                        </div>
+                      </td>
+
+                      <td>
+                        <a role="button" data-toggle="collapse" style="text-decoration: none;" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                          <h5 align="center" style="color: blue">Visualizar</h5>
+                        </a>
+                        <div class="collapse" id="collapse2">
+                          {% for f in up %}
+                          {% if f.tipo == 10 %}
+                            {% set link = ['uploads', f.archivo] | join('/') %}
+                            <h5><a href="{{ link | url }}" target="_blank">{{f.archivo}}</a></h5>
+                          {% endif %}
+                          {% endfor %}
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+              </div>
+              <div class="row">
+              <div class="divide80"></div>
+              <div class="divide80"></div>
+              <div class="divide80"></div>
+              <div class="divide25"></div>
+                <div class="col-sm-5" style="border: 1px solid blue">
+                  <div class="divide30"></div>
+                  <div class="divide25"></div>
+                  <div class="text-center">
+                    <a href="{{ 'admin/form' | url }}" class="btn" style="background-color: #002857">Editar Información</a>
+                  </div>
+                  <h3><center>Dar click si necesitas editar o agregar información</center></h3>
+                </div>
+
+                <div class="col-sm-1">
+                </div>
+
+                <div class="col-sm-6" style="border: 1px solid blue">
+                  <div class="divide30"></div>
+                  <div class="divide25"></div>
+                  <div class="text-center">
+                    <a href="{{ 'admin/form/documents' | url }}" class="btn" style="background-color: #002857">Subir Documentos</a>
+                    <br>
+                    <h3><strong style="color: black">Debes completar primero tu Información para poder subir archivos</strong></h3>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock %}

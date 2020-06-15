@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{{ '/css/style/images/favicon.png' | url }}">
+    <title>UNIVA | Proyecto Perfil Laboral</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ '/css/style/css/bootstrap.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/style/css/settings.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/style/js/google-code-prettify/prettify.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/style/js/fancybox/jquery.fancybox.css' | url }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ '/css/style/js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.2' | url }}" rel="stylesheet" type="text/css" />
+    <link href="{{ '/css/style.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/style/css/color/aqua.css' | url }}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700italic,700,900,900italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
+    <link href="{{ '/css/style/type/fontello.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/style/type/budicons.css' | url }}" rel="stylesheet">
+
+    <!-- Particular styles -->
+    <style>
+        a { color: #5686da; }
+        a:hover { text-decoration: underline; color: #f18903; }
+
+        /* Form fields */
+        .campos {
+            background: transparent !important;
+            border: 1px solid white !important;
+            width: 100% !important;
+        }
+
+        th, input {
+          text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+  <!-- Container -->
+    <div class="body-wrapper">
+
+      <!-- Principal -->
+        {% block principal %}
+        {% endblock %}
+      <!-- End Principal -->
+
+      <!-- Section 1 -->
+        {% block section1 %}
+        {% endblock %}
+      <!-- End Section 1 -->
+
+      <!-- Section 2 -->
+        {% block section2 %}
+        {% endblock %}
+      <!-- End Section 2 -->
+
+      <!-- Section 3 -->
+        {% block section3 %}
+        {% endblock %}
+      <!-- End Section 3 -->
+
+        <!-- Footer -->
+        <footer class="footer black-wrapper widget-footer">
+            <div class="sub-footer">
+                <div class="container">
+                    <p class="pull-left">Todos los derechos reservados.</p>
+                    <p class="pull-left"><a href="http://www.univa.mx/aviso-de-privacidad" target="_blank">&nbsp;Aviso de privacidad.</a></p>
+                    <p class="pull-right">© 2018 Universidad del Valle de Atemajac.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer -->
+
+    </div>
+    <!-- End container -->
+    <script src="{{ '/css/style/js/jquery.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/bootstrap.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/twitter-bootstrap-hover-dropdown.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.themepunch.plugins.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.themepunch.revolution.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.fancybox.pack.js' | url }}"></script>
+    <script src="{{ '/css/style/js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.2' | url }}"></script>
+    <script src="{{ '/css/style/js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.0' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.isotope.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.easytabs.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/idangerous.swiper-2.1.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.fitvids.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.sticky.js' | url }}"></script>
+    <script src="{{ '/css/style/js/google-code-prettify/prettify.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.slickforms.js' | url }}"></script>
+    <script src="{{ '/css/style/js/instafeed.min.js' | url }}"></script>
+    <script src="{{ '/css/style/js/jquery.dcflickr.1.0.js' | url }}"></script>
+    <script src="{{ '/css/style/js/retina.js' | url }}"></script>
+    <script src="{{ '/css/style/js/classie.js' | url }}"></script>
+    <script src="{{ '/css/style/js/scripts.js' | url }}"></script>
+</body>
+
+</html>
